@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohamed Hisham — Data Analytics and Business Intelligence portfolio. Turning data into insights and insights into better decisions." />
+  <title>Mohamed Hisham | Data Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080d18; --panel: #101a2b; --panel2: #0d1524; --text: #edf3ff;
+      --muted: #9aa9c1; --blue: #58a6ff; --cyan: #65e0d2; --line: rgba(161,185,220,.15);
+      --shadow: 0 24px 70px rgba(0,0,0,.28); --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,13,24,.82); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font: 700 1.08rem "Space Grotesk", sans-serif; letter-spacing: -.04em; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; gap: 27px; align-items: center; color: var(--muted); font-size: .9rem; }
+    .nav-links a:hover, .text-link:hover { color: var(--cyan); }
+    .menu-btn { display: none; color: var(--text); background: transparent; border: 1px solid var(--line); border-radius: 10px; padding: 8px 11px; }
+    .hero { min-height: 690px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 60px; padding: 90px 0 100px; }
+    .eyebrow { color: var(--cyan); text-transform: uppercase; letter-spacing: .17em; font-size: .76rem; font-weight: 700; }
+    h1,h2,h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.13; letter-spacing: -.045em; }
+    h1 { font-size: clamp(3rem, 6vw, 5.3rem); margin: 18px 0 20px; max-width: 750px; }
+    h1 .accent { color: var(--blue); }
+    .hero-copy { color: var(--muted); font-size: 1.1rem; max-width: 610px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 12px; padding: 13px 19px; font-weight: 700; font-size: .92rem; transition: .2s ease; border: 1px solid transparent; }
+    .btn-primary { background: var(--blue); color: #07111f; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(88,166,255,.22); }
+    .btn-secondary { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.025); }
+    .btn-secondary:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .hero-visual { position: relative; min-height: 390px; display: grid; place-items: center; }
+    .orb { width: min(340px, 75vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #244c78, #14263f 48%, #0b1423 72%); border: 1px solid rgba(110,174,255,.3); box-shadow: 0 0 90px rgba(53,132,220,.18), inset 0 0 70px rgba(83,166,255,.1); position: relative; }
+    .orb:before,.orb:after { content:""; position:absolute; inset: 11%; border: 1px solid rgba(101,224,210,.28); border-radius: 50%; transform: rotate(-28deg) scaleY(.45); }
+    .orb:after { transform: rotate(48deg) scaleY(.45); border-color: rgba(88,166,255,.35); }
+    .orb-core { position:absolute; inset: 34%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #b6e7ff, #398be0 45%, #173c68); box-shadow: 0 0 65px rgba(88,166,255,.5); }
+    .float-card { position:absolute; background: rgba(16,26,43,.92); border: 1px solid var(--line); padding: 13px 16px; border-radius: 14px; box-shadow: var(--shadow); font-size: .85rem; }
+    .float-card strong { display:block; font: 600 1rem "Space Grotesk"; }
+    .float-card small { color: var(--muted); }
+    .fc-one { top: 9%; right: 0; } .fc-two { bottom: 10%; left: -3%; }
+    section { padding: 82px 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 690px; margin-bottom: 36px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 12px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .about-grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 25px; }
+    .panel { background: linear-gradient(145deg, rgba(16,26,43,.96), rgba(12,20,34,.96)); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+    .panel p { color: var(--muted); margin: 0 0 14px; }
+    .panel p:last-child { margin-bottom: 0; }
+    .fact-list { display:grid; gap: 15px; }
+    .fact { padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .fact:last-child { border: 0; padding: 0; }
+    .fact span { display:block; color: var(--muted); font-size: .8rem; }
+    .fact strong { font-weight: 600; }
+    .skills-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .skill-card { padding: 23px; border-radius: 17px; background: var(--panel2); border: 1px solid var(--line); }
+    .skill-card .icon { width: 42px; height: 42px; display:grid; place-items:center; border-radius: 12px; color: var(--cyan); background: rgba(101,224,210,.09); font-size: 1.15rem; margin-bottom: 17px; }
+    .skill-card h3 { font-size: 1.1rem; margin: 0 0 9px; letter-spacing: -.02em; }
+    .skill-card p { color: var(--muted); font-size: .9rem; margin: 0; }
+    .tags { display:flex; flex-wrap:wrap; gap: 8px; margin-top: 16px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; color: #c6d4e9; font-size: .76rem; background: rgba(255,255,255,.025); }
+    .project-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .project { overflow:hidden; padding:0; }
+    .project-top { min-height: 175px; padding: 24px; display:flex; align-items:flex-end; position:relative; overflow:hidden; background: linear-gradient(135deg,#173a5c,#101a2b 70%); }
+    .project:nth-child(2) .project-top { background: linear-gradient(135deg,#164b51,#101a2b 72%); }
+    .project:nth-child(3) .project-top { background: linear-gradient(135deg,#42366e,#101a2b 72%); }
+    .project:nth-child(4) .project-top { background: linear-gradient(135deg,#59432c,#101a2b 72%); }
+    .project-top:after { content:""; position:absolute; width:210px; height:210px; border:1px solid rgba(255,255,255,.15); border-radius:50%; right:-25px; top:-100px; box-shadow: 0 0 0 22px rgba(255,255,255,.025),0 0 0 48px rgba(255,255,255,.02); }
+    .project-label { position:relative; z-index:1; font:600 .75rem "Space Grotesk"; letter-spacing:.14em; color:#d4e8ff; text-transform:uppercase; }
+    .project-body { padding: 24px; }
+    .project-body h3 { font-size:1.3rem; margin:0 0 10px; }
+    .project-body p { color:var(--muted); font-size:.92rem; margin:0; }
+    .project-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:19px; }
+    .text-link { color:var(--blue); font-size:.88rem; font-weight:700; }
+    .note { color:var(--muted); font-size:.8rem; margin-top:22px; }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .service { padding:23px; border:1px solid var(--line); border-radius:17px; background:var(--panel2); }
+    .service h3 { font-size:1.05rem; margin:0 0 9px; }
+    .service p { color:var(--muted); font-size:.88rem; margin:0; }
+    .service-num { color:var(--cyan); font:700 .78rem "Space Grotesk"; margin-bottom:18px; }
+    .learning { display:flex; align-items:center; justify-content:space-between; gap:25px; flex-wrap:wrap; }
+    .learning p { color:var(--muted); max-width:680px; margin:0; }
+    .contact-box { display:grid; grid-template-columns:1fr auto; align-items:center; gap:25px; padding:36px; background:linear-gradient(120deg,rgba(31,76,119,.48),rgba(16,26,43,.9)); border:1px solid rgba(88,166,255,.25); border-radius:var(--radius); }
+    .contact-box h2 { margin:0 0 10px; font-size:clamp(1.8rem,4vw,2.6rem); }
+    .contact-box p { margin:0; color:var(--muted); }
+    footer { padding:27px 0; color:var(--muted); font-size:.82rem; }
+    .footer-inner { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    .socials { display:flex; gap:18px; }
+    .socials a:hover { color:var(--cyan); }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns:1fr; padding:75px 0; gap:25px; }
+      .hero-visual { min-height:330px; }
+      .about-grid { grid-template-columns:1fr; }
+      .skills-grid,.services-grid { grid-template-columns:repeat(2,1fr); }
+      .nav-links { display:none; position:absolute; top:72px; left:0; right:0; padding:20px; background:#0b1321; border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+    }
+    @media (max-width: 580px) {
+      .container { width:min(100% - 30px,1120px); }
+      h1 { font-size:2.8rem; }
+      section { padding:65px 0; }
+      .skills-grid,.services-grid,.project-grid { grid-template-columns:1fr; }
+      .contact-box { grid-template-columns:1fr; padding:26px; }
+      .fc-one { right:-3%; } .fc-two { left:-2%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#home">MH<span>.</span></a>
+      <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Data Analytics · Business Intelligence</div>
+        <h1>Turning data into <span class="accent">insights</span>, and insights into better decisions.</h1>
+        <p class="hero-copy">I'm Mohamed Hisham. I work with data to uncover patterns, communicate findings, and support smarter decisions through analysis and clear visualizations.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore my projects <span>↗</span></a>
+          <a class="btn btn-secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Abstract data visualization illustration">
+        <div class="orb"><div class="orb-core"></div></div>
+        <div class="float-card fc-one"><strong>Data → Insight</strong><small>From raw data to clarity</small></div>
+        <div class="float-card fc-two"><strong>Analytics mindset</strong><small>Curiosity · Structure · Impact</small></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">A little about me</div><h2>Curious about data. Focused on impact.</h2><p>I combine a Computer Science foundation with a practical interest in analytics, problem-solving, and business intelligence.</p></div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>My approach starts with understanding the question behind the data. I enjoy preparing datasets, exploring patterns, and presenting findings in a way that is clear and useful.</p>
+            <p>I'm currently developing my skills across Python, SQL, spreadsheets, and visualization tools, while building a foundation for future work in AI and Machine Learning.</p>
+            <p>I value continuous learning, clear communication, and honest analysis over impressive-looking numbers without context.</p>
+          </div>
+          <div class="panel fact-list">
+            <div class="fact"><span>Education</span><strong>Computer Science · Lotus University</strong></div>
+            <div class="fact"><span>Expected graduation</span><strong>2028</strong></div>
+            <div class="fact"><span>Focus areas</span><strong>Data Analytics · BI · AI/ML foundations</strong></div>
+            <div class="fact"><span>Current approach</span><strong>Learn, build, analyze, improve</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Technical toolkit</div><h2>Tools I use to work with data.</h2><p>A growing toolkit for data preparation, analysis, querying, and communicating insights.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="icon">Py</div><h3>Python & Data Analysis</h3><p>Working with data structures, cleaning, exploration, and visual analysis.</p><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div></article>
+          <article class="skill-card"><div class="icon">SQL</div><h3>Databases & SQL</h3><p>Querying relational data and organizing analysis workflows.</p><div class="tags"><span class="tag">SQL</span><span class="tag">SQL Server</span><span class="tag">SSMS</span><span class="tag">CTEs</span><span class="tag">Views</span></div></article>
+          <article class="skill-card"><div class="icon">▦</div><h3>Spreadsheets</h3><p>Structuring, cleaning, analyzing, and reporting data in spreadsheets.</p><div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">Formulas</span><span class="tag">PivotTables</span></div></article>
+          <article class="skill-card"><div class="icon">▥</div><h3>Data Visualization</h3><p>Turning analytical findings into readable charts and dashboards.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Dashboards</span></div></article>
+          <article class="skill-card"><div class="icon">∑</div><h3>Analytical Methods</h3><p>Applying core analytical concepts to understand data quality and patterns.</p><div class="tags"><span class="tag">Statistics</span><span class="tag">EDA</span><span class="tag">Data Cleaning</span><span class="tag">Regression basics</span></div></article>
+          <article class="skill-card"><div class="icon">AI</div><h3>AI & Machine Learning</h3><p>Building foundational knowledge and exploring how machine learning supports data analysis.</p><div class="tags"><span class="tag">ML fundamentals</span><span class="tag">Scikit-learn basics</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Selected work</div><h2>Projects built through practice.</h2><p>Examples of how I explore datasets, structure analysis, and communicate findings. Add your final screenshots and repository links before publishing.</p></div>
+        <div class="project-grid">
+          <article class="panel project">
+            <div class="project-top"><span class="project-label">01 / Exploratory analysis</span></div>
+            <div class="project-body"><h3>Superstore Data Analysis</h3><p>Explored retail sales data through data cleaning, exploratory analysis, and business-focused questions to identify patterns in sales, profit, and product performance.</p><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">EDA</span><span class="tag">Visualization</span></div><div class="project-footer"><span class="note">Add repository / case study link</span><a class="text-link" href="#contact">Ask about project ↗</a></div></div>
+          </article>
+          <article class="panel project">
+            <div class="project-top"><span class="project-label">02 / Business intelligence</span></div>
+            <div class="project-body"><h3>Country Data Comparison</h3><p>Built a dashboard comparing country-level economic and health indicators, with visual summaries designed to make cross-country patterns easier to explore.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">DAX</span></div><div class="project-footer"><span class="note">Add dashboard screenshot / link</span><a class="text-link" href="#contact">Ask about project ↗</a></div></div>
+          </article>
+          <article class="panel project">
+            <div class="project-top"><span class="project-label">03 / Maritime analytics</span></div>
+            <div class="project-body"><h3>MaritimePulse</h3><p>A maritime analytics project using vessel tracking (AIS) data. The workflow includes data preparation and SQL-based exploration of vessel movements and route information.</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">AIS Data</span><span class="tag">Data Modeling</span></div><div class="project-footer"><span class="note">Add repository / project report</span><a class="text-link" href="#contact">Ask about project ↗</a></div></div>
+          </article>
+          <article class="panel project">
+            <div class="project-top"><span class="project-label">04 / SQL analysis</span></div>
+            <div class="project-body"><h3>Confectionery Shop SQL Analysis</h3><p>Practiced writing SQL queries to explore shop data, answer structured questions, and develop a clearer understanding of relational data analysis.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Querying</span><span class="tag">Data Analysis</span></div><div class="project-footer"><span class="note">Add GitHub repository link</span><a class="text-link" href="#contact">Ask about project ↗</a></div></div>
+          </article>
+        </div>
+        <p class="note">Portfolio setup note: replace the placeholder project links with your actual GitHub, Tableau Public, or dashboard URLs. Only publish screenshots and results you have verified.</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">How I can help</div><h2>Practical support for your data.</h2><p>Clear, focused services for individuals and small teams who need more value from their datasets.</p></div>
+        <div class="services-grid">
+          <article class="service"><div class="service-num">SERVICE 01</div><h3>Data Cleaning & Preparation</h3><p>Organizing datasets, handling duplicates and inconsistencies, and preparing data for analysis.</p></article>
+          <article class="service"><div class="service-num">SERVICE 02</div><h3>Exploratory Data Analysis</h3><p>Exploring datasets, summarizing key patterns, and identifying questions worth investigating.</p></article>
+          <article class="service"><div class="service-num">SERVICE 03</div><h3>SQL Data Analysis</h3><p>Writing SQL queries to filter, aggregate, join, and investigate structured datasets.</p></article>
+          <article class="service"><div class="service-num">SERVICE 04</div><h3>Excel Reporting</h3><p>Organizing spreadsheet data and creating clear summaries and reports.</p></article>
+          <article class="service"><div class="service-num">SERVICE 05</div><h3>Dashboard Development</h3><p>Creating focused visual reports and dashboards using Power BI or Tableau, based on project scope.</p></article>
+          <article class="service"><div class="service-num">SERVICE 06</div><h3>Data Visualization</h3><p>Selecting suitable charts and presenting findings in a clear, understandable format.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel learning">
+        <div><div class="eyebrow">Always learning</div><h2 style="margin:10px 0 12px">Building toward data-driven AI.</h2><p>My current priority is strengthening the fundamentals of data analytics and programming. I'm gradually expanding into AI and Machine Learning with a focus on understanding the methods before applying them to real problems.</p></div>
+        <a class="btn btn-secondary" href="#projects">See my work ↗</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div><div class="eyebrow">Let's connect</div><h2>Have a data project in mind?</h2><p>I'm open to opportunities, collaboration, and data analysis projects. Reach out and let's discuss what you need.</p></div>
+          <a class="btn btn-primary" href="mailto:mohamed.hisham.youssef123@gmail.com">Email me ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Mohamed Hisham. Built with curiosity and data.</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    function toggleMenu() {
+      const menu = document.getElementById("navLinks");
+      const button = document.querySelector(".menu-btn");
+      const isOpen = menu.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
+    }
+    document.querySelectorAll("#navLinks a").forEach(link => link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("open");
+      document.querySelector(".menu-btn").setAttribute("aria-expanded", "false");
+    }));
+  </script>
+</body>
+</html>
